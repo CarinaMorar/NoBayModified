@@ -1,17 +1,14 @@
 package com.projectNoBay.NoBay.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 @Data
 @Builder
 @Entity
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @AllArgsConstructor
-
+@NoArgsConstructor
 public class BeautyProducts {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -40,7 +40,7 @@ public class AdminServiceImplementation implements AdminService {
 
      @Override
     public List<Admin> findAllAdmins() {
-         return adminRepository.findAll();
+         return (List<Admin>) adminRepository.findAll();
      }
      @Override
      public Optional<Admin> findAdminById(Long id) {
@@ -100,7 +100,7 @@ public class AdminServiceImplementation implements AdminService {
     public String logIn(Admin admin1, String password, String email)
     {
         Admin adminToLogin = adminRepository.findById(admin1.getId()).orElse(null);
-        System.out.println("aaaaaaaaaaaaaaaaaaaaa");
+        //System.out.println("aaaaaaaaaaaaaaaaaaaaa");
         if(adminToLogin == null)
             System.out.println("NAIBAAA");
         if(adminToLogin.getPassword().equals(password) && adminToLogin.getEmail().equals(email)) {

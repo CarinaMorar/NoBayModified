@@ -1,5 +1,6 @@
 package com.projectNoBay.NoBay;
 
+import com.projectNoBay.NoBay.controller.AdminController;
 import com.projectNoBay.NoBay.mapper.AdminMapper;
 import com.projectNoBay.NoBay.model.Admin;
 import com.projectNoBay.NoBay.model.BeautyProducts;
@@ -49,7 +50,6 @@ public class NoBayApplication {
 			OrderService orderService=new OrderServiceImplementation();
 			BeautyProductsService beautyProductsService=new BeautyProductsServiceImplementation();
 
-
 			//BD Admin
 			Admin admin = new Admin();
 			admin.setAdminName("carina.morar");
@@ -66,6 +66,9 @@ public class NoBayApplication {
 			admin2.setLastName("Morar2");
 			admin2.setPassword("password2");
 			adminRepository.save(admin2);
+
+			Admin admin3 = new Admin(null,"carina.morar3","carina3@gmail.com","pass","Carina3","Morar3");
+
 
 			//Bd Beauty
 			BeautyProducts product1 = new BeautyProducts();
@@ -135,14 +138,28 @@ public class NoBayApplication {
 			log.info(String.valueOf(orders1));
 			orderRepository.save(orders1);
 
-			try
+
+
+			//Testare metode admin
+			//System.out.println(adminService.findAllAdmins()); //ok
+			//System.out.println(adminService.findAdminById(2L)); //ok
+			//System.out.println(adminService.deleteAdmin(admin)); //ok
+			//System.out.println(adminService.findAdminByName("carina.morar")); //ok
+			//System.out.println(adminService.deleteByIdAdmin(2l)); //ok
+			//System.out.println(adminService.createAdmin(admin3)); //ok
+			//System.out.println(adminService.updateAdminName(admin,"aaa")); //ok
+			//System.out.println(adminService.updateAdminEmail(admin,"bbb")); //ok
+			//System.out.println(adminService.updateAdminFirstName(admin,"ccc")); //ok
+			//System.out.println(adminService.updateAdminLastName(admin,"ddd")); //ok
+			//System.out.println(adminService.updateAdminPass(admin,"llalala")); //ok
+
+			/*try
 			{
-				adminService.logIn(admin,"password", "carina@gmail.com");
+				System.out.println(adminService.logIn(admin,"password", "carina@gmail.com"));
 			}catch (Exception e){
 				e.printStackTrace();
-			}
+			}*/
 
-		//	System.out.println(adminService.findAllAdmins());
 		};
 
 

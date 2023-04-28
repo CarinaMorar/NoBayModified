@@ -9,7 +9,8 @@ import lombok.*;
 @Data
 @Builder
 @Entity
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 public class Admin {
     @Id

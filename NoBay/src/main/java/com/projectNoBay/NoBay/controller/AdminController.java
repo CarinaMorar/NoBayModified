@@ -16,24 +16,23 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/admin")
 public class AdminController {
     @Autowired
     private AdminService adminService;
     @Autowired
     private ModelMapper modelMapper;
-
-    @GetMapping()
+    @GetMapping("/findAll")
     public List<AdminDTO> findAllAdmins(){
         List<Admin> adminList = adminService.findAllAdmins();
-        System.out.println(adminList);
+        System.out.println("adminList");
         List<AdminDTO> adminDTO = adminList.stream().map(admin ->
                 modelMapper.map(admin,AdminDTO.class)).collect(Collectors.toList());
         return adminDTO;
     }
     @GetMapping("/findById/{id}")
-    public ResponseEntity findAdminById(@PathVariable Long id){
+    public ResponseEntity findAdminById(@RequestParam Long id){
         Optional<Admin> admin = adminService.findAdminById(id);
         AdminDTO adminDTO = modelMapper.map(admin, AdminDTO.class);
         return ResponseEntity.status(HttpStatus.OK).body(adminDTO);
